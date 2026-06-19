@@ -1,0 +1,33 @@
+# Example scope.yaml — copy to your project root and edit.
+# This is what a real (sanitized) engagement file might look like.
+
+engagement_name: "Acme Corp Q3 2026 API Pentest"
+authorized_by: "Jane Doe, Acme CISO — see SOW-2026-0317"
+
+# Nothing is probed live until this is true.
+allow_active_probing: true
+
+allowed_hosts:
+  - pattern: "api.acme.com"
+    note: "Primary production API — in scope per SOW section 2.1"
+  - pattern: "*.staging.acme.com"
+    note: "All staging subdomains in scope"
+  - pattern: "mobile-api.acme.com"
+    note: "Backend used by the Acme Android app"
+
+allowed_cidrs:
+  - "10.50.0.0/24"   # internal network range provided by client for this engagement
+
+excluded_hosts:
+  - pattern: "payments.acme.com"
+    note: "Out of scope — third-party PCI-DSS environment, do not touch"
+  - pattern: "*.acme-partner.com"
+    note: "Third-party partner systems, not authorized"
+
+max_requests_per_host: 150
+rate_limit_rps: 1.5
+
+notes: >
+  Engagement window: 2026-07-01 to 2026-07-14. Point of contact for
+  questions or to report a critical finding immediately: security@acme.com.
+  Authorization letter on file: /engagements/acme-2026-q3/authorization.pdf
