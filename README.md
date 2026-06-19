@@ -22,7 +22,7 @@ Use this only against systems you are authorized to test.
 ## Install
 
 ```bash
-git clone https://github.com/yourorg/apimapper
+git clone https://github.com/Roth77/api-mapper.git
 cd apimapper
 pip install -e .
 # or, on Kali: pip install -e . --break-system-packages
